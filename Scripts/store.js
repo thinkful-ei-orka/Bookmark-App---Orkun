@@ -1,66 +1,58 @@
-import $ from 'jquery';
 
-const store = {
-  bookmarks: [
-    {
-      id: 'x56w',
-      title: 'Title 1',
-      rating: 3,
-      url: 'http://www.title1.com',
-      description: 'lorem ipsum dolor sit',
-      expanded: false
-    },
-    {
-      id: '6ffw',
-      title: 'Title 2',
-      rating: 5,
-      url: 'http://www.title2.com',
-      description: 'dolorum tempore deserunt',
-      expanded: false
-    } 
-  ],
-  adding: false,
-  error: null,
-  filter: 0
+
+// add to the bookmarks following items:
+// id: 'x56w',
+// title: 'Title 1',
+// rating: 3,
+// url: 'http://www.title1.com',
+// description: 'lorem ipsum dolor sit',
+// expanded: false
+
+
+const bookmarks = []
+let adding = false;
+let error = null;
+let filter = 0;
+
+const findById = function (id) {
+  return this.bookmarks.find(currentItem => currentItem.id === id)
+}
+
+
+const addBookmark = function (item) {
+  this.bookmarks.push(item)
+}
+
+const deleteBookmark = function(id) {
+  this.bookmarks = this.bookmarks.filter(currentItem => currentItem.id !== id);
+}
+
+const findAndUpdate = function(id, newData) {
+  let foundItem = this.findById(id);
+  Object.assign(foundItem, newData)
+}
+
+function filterList(rating) {
+  this.filter = rating;
+  let filteredItems = this.bookmarks.filter(item => item.rating >= this.filter);
+  return filteredItems;
 };
 
-/* Template Functions */
+function toggleviews(bookmarkItem) {
+  bookmarkItem.expanded = !bookmarkItem.expanded;
+}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-/********** RENDER FUNCTION(S) **********/
-
-// This function conditionally replaces the contents of the <main> tag based on the state of the store
-
-/********** EVENT HANDLER FUNCTIONS **********/
-
-// These functions handle events (submit, click, etc)
-
-
-
-
-
-
-
-/* A function to call all event handler functions */
-
-// const bindEventListeners = function() {
-
-// }
-
-// export default {
-  // render,
-  // bindEventListeners
-
-// }
+export default {
+  bookmarks,
+  adding,
+  error,
+  filter,
+  findById,
+  addBookmark,
+  deleteBookmark,
+  findAndUpdate,
+  filterList,
+  toggleviews
+}

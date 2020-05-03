@@ -1,0 +1,53 @@
+
+*{
+  box-sizing: border-box;
+}
+
+
+h1 {
+  text-align: center;
+}
+
+.top-buttons {
+  justify-content: center;
+  display: flex;
+}
+
+.new-bookmark {
+  margin-right: 10px;
+  background-color: darksalmon;
+}
+
+#stars {
+  background-color: darksalmon;
+} 
+
+
+.bookmarks-page {
+  border: solid black;
+  border-radius: 5px;
+  display: flex;
+  margin-top: 10px;
+  flex-direction: column;
+}
+
+.bookmarks-page h2 {
+  font-size: 15px;
+}
+
+.bookmark-header {
+  background-color: gray;
+  border-radius: 5px;
+}
+
+.add-bookmark-form fieldset {
+  border: none;
+}
+
+fieldset {
+  display: block;
+}
+
+body {
+  padding: 20px;
+}

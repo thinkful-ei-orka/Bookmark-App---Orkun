@@ -9,6 +9,7 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet"
     type="text/css" />
   <link href="index.css" rel="stylesheet" type="text/css" />
+  <script src="https://kit.fontawesome.com/9dd2c859c8.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -16,10 +17,23 @@
     <h1>Bookmarks</h1>
   </header>
   <main>
-    
+    <section class="top-buttons">
+      <button class="new-bookmark"
+      type="button">
+  + New 
+  </button>
+  <select id = "stars">
+    <option value = "5">☆☆☆☆☆</option>
+    <option value = "4">☆☆☆☆</option>
+    <option value = "3">☆☆☆</option>
+    <option value = "2">☆☆</option>
+    <option value = "1">☆</option>
+  </select>
+  </section>
+  
   </main>
   <script src="https://code.jquery.com/jquery-3.5.0.min.js" crossorigin="anonymous"></script>
-  <script src="scripts/index.js"></script>
+  <script type="module" src="scripts/index.js"></script>
 </body>
 
 </html>
