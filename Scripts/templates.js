@@ -1,18 +1,20 @@
 // Generate functions go here. 
 
+
+
 //GenerateInitial View
 
 //Generate
 
 
-function generateInitialView() {
+function generateInitialView(bookmarks) {
     return `
     <section class="top-buttons">
     <button class="new-bookmark"
     type="button">
 + New 
 </button>
-<select id = "stars">
+<select class = "stars">
   <option value="" selected disabled hidden>Minimum Rating</option>
   <option value = "5">☆☆☆☆☆</option>
   <option value = "4">☆☆☆☆</option>
@@ -20,7 +22,13 @@ function generateInitialView() {
   <option value = "2">☆☆</option>
   <option value = "1">☆</option>
 </select>
-</section>`
+</section>
+<header>
+  <h2>My Bookmarks</h2>
+</header>
+
+
+`
 }
 
 function generateAddBookmark() {
@@ -32,7 +40,7 @@ function generateAddBookmark() {
         <input type="text" name="bookmark-inputs" id="bookmark-title" placeholder="type here...  " required>
         <label for="bookmark-url">Enter a URL</label>
         <input type="url" name="bookmark-inputs" id="bookmark-url" placeholder="include 'https' protocol" required>
-        <label for="bookmark-desc">Enter a description</label>
+        <label for="bookmark-desc">Description</label>
         <textarea id="bookmark-desc" cols="39" rows="5" placeholder="Enter a brief description..." style="resize:none"></textarea>
       </fieldset>
       <fieldset class="star-rating">       
@@ -54,33 +62,68 @@ function generateAddBookmark() {
  `
 }
 
-function generateBookmark(bookmarks) {
-    if (!bookmarks.expanded) {
-      return `
-          <section class="bookmark-links" data-item-id="${bookmarks.id}">
-            <button class="bookmark-links-btn">${bookmarks.title}</button
-            ><span class="star-rating">${bookmarks.rating}</span><button type='submit' class='delete-bookmark'>Delete</button>
-          </section>`;
-    } else {
-      return `
-    <section class="bookmark-links-expanded" data-item-id="${bookmarks.id}">${bookmarks.title}
-    <span for="star-rating-expaned">${bookmarks.rating}</span>
-    <button type='submit' class='delete-bookmark'>Delete</button>
-    <p class="description-expanded">${bookmarks.desc}</p>
-    <a href="${bookmarks.url}">Visit Site</a></section>`;
-    }
-  }
+
+const generateStarRating = [
+    '<span>★</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>',
+    '<span>★</span><span>★</span><span>☆</span><span>☆</span><span>☆</span>',
+    '<span>★</span><span>★</span><span>★</span><span>☆</span><span>☆</span>',
+    '<span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>',
+    '<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>',
+  ]
+
+  const generateShrunkBookmarkItem = (bookmark) => {
+    // console.log(bookmark.id)
+    return `
+<ul class = "bookmark-shrunk-list">
+<li class="bookmark-item collapsed-list" data-item-id="${bookmark.id}">
+      <h2 class="bookmark-title">${bookmark.title}</h2>
+      <div class="bookmark-rating">
+        ${generateStarRating[bookmark.rating - 1]}
+      </div>
+      <a href="#" class="delete-bookmark-btn"><span>&#x1f5d1;</span></a>
+    </li>
+</ul>`
+    
+  };
+
+
+  const generateExpandedBookmarkItem = function(bookmark) {
+    // console.log(bookmark.id)
+    return `
+    <ul class ="bookmark-expanded-list">
+    <li class="bookmark-item expanded-list" data-item-id="${bookmark.id}">
+      <h2 class="bookmark-title">${bookmark.title}</h2>
+      <p class="bookmark-desc">
+        ${bookmark.desc}
+      </p>
+      <a href="${bookmark.url}" target="_blank" class="visit-site-btn">Visit site</a>
+      <div class="bookmark-rating">
+        ${generateStarRating[bookmark.rating - 1]}
+      </div>
+      <a href="#" class="delete-bookmark-btn"><span>&#x1f5d1;</span></a>
+    </li>
+    </ul>`
+  };
+
 
   function generateBookmarkString(bookmarkItem) {
-    const items = bookmarkItem.map(item => generateBookmark(item));
+    const items = bookmarkItem.map(item => {
+        if(!item.expanded) {
+           return generateShrunkBookmarkItem(item)
+        }
+        else {
+          return generateExpandedBookmarkItem(item)
+        }
+    })
     return items.join('');
+    
   }
-
 
 
 export default {
     generateInitialView,
-    generateBookmark,
+    generateShrunkBookmarkItem,
+    generateExpandedBookmarkItem,
     generateBookmarkString,
     generateAddBookmark
 }

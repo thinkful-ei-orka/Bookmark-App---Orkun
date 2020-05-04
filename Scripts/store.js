@@ -13,6 +13,7 @@ const bookmarks = []
 let adding = false;
 let error = null;
 let filter = 0;
+let added = false;
 
 const findById = function (id) {
   return this.bookmarks.find(currentItem => currentItem.id === id)
@@ -20,6 +21,7 @@ const findById = function (id) {
 
 
 const addBookmark = function (item) {
+  // item.expanded = false;
   this.bookmarks.push(item)
 }
 
@@ -49,6 +51,7 @@ export default {
   adding,
   error,
   filter,
+  added,
   findById,
   addBookmark,
   deleteBookmark,
