@@ -13,7 +13,7 @@
 h1 {
   text-align: center;
   font-size: 35px;
-  color: #BC8F8F
+  color: 	#800000;
 }
 
 .top-buttons {
@@ -200,7 +200,7 @@ fieldset label {
 }
 
 .bookmark-rating {
-  color:	#FFD700;
+  color: black;
   font-size: 30px;
 }
 
@@ -215,7 +215,7 @@ fieldset label {
 
   li h2 {
   font-size: 25px;
-  color: darksalmon;
+  color: #355070;
   cursor: pointer;
 }
 

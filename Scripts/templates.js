@@ -25,7 +25,6 @@ function generateInitialView(bookmarks) {
 </section>
 
 
-
 `
 }
 
@@ -77,7 +76,7 @@ const generateStarRating = [
       <div class="bookmark-rating">
         ${generateStarRating[bookmark.rating - 1]}
       </div>
-      <a href="#" class="delete-bookmark-btn"><span><i class="fas fa-trash-alt"></i></span></a>
+      <a href="#" class="delete-bookmark-btn" alt="delete"><span><i class="fas fa-trash-alt"></i></span></a>
     </li>`
     
   };
@@ -95,7 +94,7 @@ const generateStarRating = [
       <div class="bookmark-rating">
         ${generateStarRating[bookmark.rating - 1]}
       </div>
-      <a href="#" class="delete-bookmark-btn"><span><i class="fas fa-trash-alt"></i></span></a>
+      <a href="#" class="delete-bookmark-btn"  alt="delete"><span><i class="fas fa-trash-alt"></i></span></a>
     </li>`
   };
 
