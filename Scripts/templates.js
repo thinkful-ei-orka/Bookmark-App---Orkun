@@ -23,9 +23,7 @@ function generateInitialView(bookmarks) {
   <option value = "1">☆</option>
 </select>
 </section>
-<header>
-  <h2>My Bookmarks</h2>
-</header>
+
 
 
 `
@@ -37,26 +35,26 @@ function generateAddBookmark() {
       <fieldset class="input-info">
         <legend>Add a Bookmark</legend>
         <label for="bookmark-title">Pick a title</label>
-        <input type="text" name="bookmark-inputs" id="bookmark-title" placeholder="type here...  " required>
+        <input type="text" name="bookmark-inputs" id="bookmark-title" placeholder="Title...  " required>
         <label for="bookmark-url">Enter a URL</label>
-        <input type="url" name="bookmark-inputs" id="bookmark-url" placeholder="include 'https' protocol" required>
+        <input type="url" name="bookmark-inputs" id="bookmark-url" placeholder="https://www.youtube.com/.." required>
         <label for="bookmark-desc">Description</label>
-        <textarea id="bookmark-desc" cols="39" rows="5" placeholder="Enter a brief description..." style="resize:none"></textarea>
+        <textarea id="bookmark-desc" cols="39" rows="5" placeholder="Enter a brief description..." style="resize:none" required></textarea>
       </fieldset>
       <fieldset class="star-rating">       
         <input type="radio" id="five-stars" name="stars" value="5">
-        <label for="five-stars">5</label>
+        <label class="half" for="five-stars">5</label>
         <input type="radio" id="four-stars" name="stars" value="4">
-        <label for="four-stars">4</label>
+        <label class="half" for="four-stars">4</label>
         <input type="radio" id="three-stars" name="stars" value="3" checked="checked" required>
-        <label for="three-stars">3</label>
+        <label class="half" for="three-stars">3</label>
         <input type="radio" id="two-stars" name="stars" value="2">
-        <label for="two-stars">2</label>
+        <label class="half" for="two-stars">2</label>
         <input type="radio" id="one-star" name="stars" value="1">
-        <label for="one-star">1</label>
+        <label class="half" for="one-star">1</label>
       </fieldset>
       <button class="add-bookmark-form-btn">
-        <span>Add Bookmark</span>
+        <span>Create Bookmark</span>
       </button>
     </form>
  `
@@ -80,7 +78,7 @@ const generateStarRating = [
       <div class="bookmark-rating">
         ${generateStarRating[bookmark.rating - 1]}
       </div>
-      <a href="#" class="delete-bookmark-btn"><span>&#x1f5d1;</span></a>
+      <a href="#" class="delete-bookmark-btn"><span><i class="fas fa-trash-alt"></i></span></a>
     </li>
 </ul>`
     
@@ -100,7 +98,7 @@ const generateStarRating = [
       <div class="bookmark-rating">
         ${generateStarRating[bookmark.rating - 1]}
       </div>
-      <a href="#" class="delete-bookmark-btn"><span>&#x1f5d1;</span></a>
+      <a href="#" class="delete-bookmark-btn"><span><i class="fas fa-trash-alt"></i></span></a>
     </li>
     </ul>`
   };

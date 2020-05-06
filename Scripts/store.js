@@ -13,7 +13,7 @@ const bookmarks = []
 let adding = false;
 let error = null;
 let filter = 0;
-let added = false;
+
 
 const findById = function (id) {
   return this.bookmarks.find(currentItem => currentItem.id === id)
@@ -44,6 +44,10 @@ function toggleviews(bookmarkItem) {
   bookmarkItem.expanded = !bookmarkItem.expanded;
 }
 
+ function setError(err) {
+  this.error = err;
+}
+
 
 
 export default {
@@ -51,11 +55,12 @@ export default {
   adding,
   error,
   filter,
-  added,
   findById,
   addBookmark,
   deleteBookmark,
   findAndUpdate,
   filterList,
-  toggleviews
+  toggleviews,
+  setError
+  
 }

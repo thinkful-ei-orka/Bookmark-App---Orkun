@@ -3,33 +3,51 @@
   box-sizing: border-box;
 }
 
+.error-container {
+  color: red;
+  margin-left: 100px;
+  font-size: larger;
+}
+
 
 h1 {
   text-align: center;
+  font-size: 35px;
+  color: #BC8F8F
 }
 
 .top-buttons {
   justify-content: center;
   display: flex;
+  font-size: 18px;
 }
+
 
 .new-bookmark {
   margin-right: 10px;
-  background-color: darksalmon;
+  background-color: #FFEBCD;
+  border-radius: 10px;
+  cursor: pointer;
 }
+
 
 .stars {
-  background-color: darksalmon;
+  background-color: #FFEBCD;
+  border-radius: 10px;
+  cursor: pointer;
 } 
 
-
-.bookmarks-page {
-  border: solid black;
-  border-radius: 5px;
-  display: flex;
-  margin-top: 10px;
-  flex-direction: column;
+ul {
+  list-style-type: none;
 }
+
+
+header h2 {
+  text-align: center;
+  color: #BC8F8F;
+  font-size: 30px;
+}
+
 
 .bookmarks-page h2 {
   font-size: 15px;
@@ -44,10 +62,349 @@ h1 {
   border: none;
 }
 
-fieldset {
-  display: block;
-}
+
 
 body {
-  padding: 20px;
+  background-color: azure;
+  
+}
+
+fieldset legend {
+  font-weight: bold;
+  text-align: center;
+  font-size: 25px;
+  color: #F4A460;
+}
+
+#bookmark-desc {
+  width: 270px
+}
+
+.input-info {
+  display: flex;
+}
+
+.add-bookmark-form {
+  margin-top: 40px;
+}
+
+fieldset label {
+  margin: 20px 0 auto;
+  font-size: larger;
+  color: #D2691E
+}
+
+::placeholder {
+  color: #FFDAB9;
+}
+
+/* Start Rating */
+
+.star-rating {
+  border: none;
+  float: left;
+  margin-top: -30px;
+  margin-left: -7px;
+}
+
+
+
+.star-rating > input { display: none; } 
+.star-rating > label:before { 
+  margin: 5px;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+
+.star-rating > label { 
+  color: #ddd; 
+ float: right; 
+ 
+}
+
+
+
+.star-rating:not(:checked) > label {
+  float: right;
+  width:1em;
+  padding:0 .1em;
+  overflow:hidden;
+  white-space:nowrap;
+  cursor:pointer;
+  font-size:200%;
+  line-height:1.2;
+  color:#ddd;
+}
+
+
+.star-rating:not(:checked) > label:before {
+  content: '★ ';
+}
+
+.star-rating > input:checked ~ label {
+  color: gold;
+}
+
+.star-rating:not(:checked) > label:hover,
+.star-rating:not(:checked) > label:hover ~ label {
+  color: gold;
+}
+
+
+.star-rating > input:checked + label:hover,
+.star-rating > input:checked + label:hover ~ label,
+.star-rating > input:checked ~ label:hover,
+.star-rating > input:checked ~ label:hover ~ label,
+.star-rating > label:hover ~ input:checked ~ label {
+  color: #ea0;
+}
+
+.star-rating > label:active {
+  position:relative;
+  top:2px;
+  left:2px;
+}
+
+
+/* Add Bookmark Button */
+
+.add-bookmark-form-btn {
+  border-radius: 5px;
+  background-color: #FFDEAD;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #D2691E;
+  margin-left: 80px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+
+.bookmark-shrunk-list {
+  border: solid #FFEBCD;
+  border-radius: 12px;
+}
+
+
+.bookmark-expanded-list {
+  border: solid #FFEBCD;
+  border-radius: 12px;
+}
+
+.bookmark-rating {
+  color:	#F0E68C;
+  font-size: 30px;
+}
+
+.delete-bookmark-btn {
+  margin-left: 200px;
+  display: block;
+  margin-top: -50px;
+  font-size: 30px;
+  color: darksalmon;
+  padding-bottom: 50px;
+}
+
+  li h2 {
+  font-size: 25px;
+  color: darksalmon;
+  cursor: pointer;
+}
+
+
+ul p {
+  font-size: larger;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+ul a {
+  font-size: larger;
+  color:blueviolet
+}
+
+li p {
+  word-wrap: break-word;
+}
+
+
+/* Tablet Size */
+
+@media screen and (min-width: 768px) {
+
+  html {
+    height: 100%;
+    margin: auto;
+    width: 960px;
+  }
+
+  .error-container {
+    color: red;
+    margin-left: 350px;
+    font-size: 30px;
+  }
+  
+  h1 {
+    font-size: 50px;
+  }
+
+  .new-bookmark {
+    font-size: 25px;
+  }
+
+  .stars {
+    font-size: 25px;
+  }
+
+  /* Expanded */
+  li p {
+    font-size: 25px;
+  }
+
+  li a {
+    font-size: 25px;
+  }
+
+li h2 {
+  font-size: 30px;
+}
+
+.bookmark-rating {
+  margin-bottom: 10px;
+  font-size: 30px
+}
+
+.delete-bookmark-btn {
+  margin-left: 500px;
+  font-size: 35px;
+  margin-top: -100px;
+}
+
+/* Adding Form */
+
+fieldset legend {
+  font-size: 40px;
+}
+
+fieldset label {
+  font-size: 30px;
+  margin: 40px 0 auto;
+}
+
+fieldset input {
+  width: 500px;
+  height: 60px;
+  font-size: 25px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+#bookmark-desc {
+  width: 600px;
+  height: 150px;
+  font-size: 25px;
+  word-wrap: break-word;
+}
+
+::placeholder {
+  font-size: 25px;
+}
+
+.star-rating {
+  font-size: 20px;
+  ;
+}
+
+.add-bookmark-form-btn {
+  margin-top: 35px;
+  font-size: 25px;
+  text-align: center; 
+  border-radius: 10px;
+
+}
+
+
+}
+
+
+/* Laptop View */ 
+
+@media screen and (min-width: 1024px) {
+  h1 {
+    font-size: 40px;
+  }
+
+  
+
+  .new-bookmark {
+    font-size: 25px;
+  }
+
+  .stars {
+    margin-left: 500px;
+    font-size: 25px;
+  }
+  
+  li h2 {
+    font-size: 25px;
+  }
+  
+.bookmark-desc {
+  font-size: 20px;
+}
+
+li a {
+  font-size: 20px;
+}
+
+
+
+.bookmark-rating {
+  font-size: 25px;
+}
+
+.delete-bookmark-btn {
+  margin-left: 700px;
+  font-size: 30px;
+  
+}
+
+span i {
+  margin-top: 55px;
+}
+
+/* Adding a Bookmark */
+
+fieldset legend {
+  font-size: 30px;
+}
+
+fieldset label { 
+  font-size: 25px;
+  margin: 20px 0 auto
+}
+
+fieldset input {
+  width: 400px;
+  height: 40px;
+  font-size: 25px;
+}
+
+.add-bookmark-form-btn {
+  font-size: 20px;
+  margin-left: 200px;
+}
+
+#bookmark-desc {
+  height: 100px;
+  font-size: 25px;
+}
+
+::placeholder {
+  font-size: 20px;
+}
+
+.star-rating {
+  font-size: 20px;
+}
+
 }

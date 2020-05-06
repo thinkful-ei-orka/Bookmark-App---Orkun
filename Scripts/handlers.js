@@ -2,19 +2,47 @@ import store from './store.js';
 import api from './api.js';
 import templates from './templates.js';
 
+const generateError = function (message) {
+    return `
+        <section class="error-content">
+          <button id="cancel-error">X</button>
+          <p>${message}</p>
+        </section>
+      `;
+  };
+  
+  const renderError = function () {
+    if (store.error) {
+      const el = generateError(store.error);
+      $('.error-container').html(el);
+    } else {
+      $('.error-container').empty();
+    }
+  };
+  
+  const handleCloseError = function () {
+    $('.error-container').on('click', '#cancel-error', () => {
+      store.setError(null);
+      renderError();
+    });
+  };
 
 
 
 
 const render = () => {
+    renderError();
     let items = store.filterList(store.filter);
     let string = templates.generateInitialView();
+    let adding = templates.generateAddBookmark();
     if(store.adding === false) {
         string += templates.generateBookmarkString(items);
      
     }
     else {
-        string += templates.generateAddBookmark()
+        
+        string = templates.generateAddBookmark()
+        
     }
 
     $('main').html(string);
@@ -46,6 +74,10 @@ const handleAddBookmark = () => {
             store.adding=false
             render()
         })
+        .catch((error) => {
+            store.setError(error.message);
+            render()
+        })
 
     })
 }
@@ -72,11 +104,15 @@ const handleDeleteBookmarks = () => {
     $('main').on('click', '.delete-bookmark-btn', event => {
         let id = getItemIdFromElement(event.currentTarget)
         api.deleteBookmark(id)
-        // .then(res => res.json())
         .then(() => {
             store.deleteBookmark(id)
             render()
         })
+        .catch((error) => {
+            store.setError(error.message);
+            render()
+        })
+
        
     })
 }
@@ -96,7 +132,7 @@ const eventHandlers = () => {
     handleExpandedBookmarks()
     handleDeleteBookmarks()
     handleFiltering()
-
+    handleCloseError()
 }
 
 

@@ -7,11 +7,14 @@ import store from './store.js'
 
 function main() {
     api.getItems()
-    // .then(res => res.json())
     .then(items => { 
         items.forEach(item => store.addBookmark(item));
         handlers.render();
-    });
+    })
+    .catch((error) => {
+        store.setError(error.message);
+        handlers.render()
+    })
     handlers.eventHandlers();
     handlers.render()
 }
@@ -20,7 +23,3 @@ function main() {
 $(main)
 
 
-
-// items.map(item => {
-//     item.expanded = false
-//     return item

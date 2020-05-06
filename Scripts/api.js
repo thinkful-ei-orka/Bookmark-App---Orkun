@@ -17,6 +17,7 @@ function listApiFetch(...args) {
         }
         return data;
       })
+
   }
 
 
@@ -42,8 +43,6 @@ function deleteBookmark(id) {
         method: "DELETE"
     })
 }
-
-
 
 export default {
     getItems,
