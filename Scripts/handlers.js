@@ -36,7 +36,7 @@ const render = () => {
     let string = templates.generateInitialView();
     let adding = templates.generateAddBookmark();
     if(store.adding === false) {
-        string += templates.generateBookmarkString(items);
+        string += `<ul class ="bookmark-listed">${templates.generateBookmarkString(items)}</ul>`;
      
     }
     else {

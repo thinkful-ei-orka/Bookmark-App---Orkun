@@ -69,6 +69,19 @@ body {
   
 }
 
+.bookmark-listed {
+  display: flex;
+  flex-direction: column;
+  padding: 0px;
+}
+
+
+.bookmark-item{
+  border: solid #FFEBCD;
+  border-radius: 12px;
+}
+
+
 fieldset legend {
   font-weight: bold;
   text-align: center;
@@ -95,7 +108,7 @@ fieldset label {
 }
 
 ::placeholder {
-  color: #FFDAB9;
+  color: 	olivedrab
 }
 
 /* Start Rating */
@@ -181,19 +194,13 @@ fieldset label {
 }
 
 
-.bookmark-shrunk-list {
-  border: solid #FFEBCD;
-  border-radius: 12px;
-}
-
-
 .bookmark-expanded-list {
   border: solid #FFEBCD;
   border-radius: 12px;
 }
 
 .bookmark-rating {
-  color:	#F0E68C;
+  color:	#FFD700;
   font-size: 30px;
 }
 

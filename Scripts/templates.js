@@ -72,15 +72,13 @@ const generateStarRating = [
   const generateShrunkBookmarkItem = (bookmark) => {
     // console.log(bookmark.id)
     return `
-<ul class = "bookmark-shrunk-list">
 <li class="bookmark-item collapsed-list" data-item-id="${bookmark.id}">
       <h2 class="bookmark-title">${bookmark.title}</h2>
       <div class="bookmark-rating">
         ${generateStarRating[bookmark.rating - 1]}
       </div>
       <a href="#" class="delete-bookmark-btn"><span><i class="fas fa-trash-alt"></i></span></a>
-    </li>
-</ul>`
+    </li>`
     
   };
 
@@ -88,7 +86,6 @@ const generateStarRating = [
   const generateExpandedBookmarkItem = function(bookmark) {
     // console.log(bookmark.id)
     return `
-    <ul class ="bookmark-expanded-list">
     <li class="bookmark-item expanded-list" data-item-id="${bookmark.id}">
       <h2 class="bookmark-title">${bookmark.title}</h2>
       <p class="bookmark-desc">
@@ -99,8 +96,7 @@ const generateStarRating = [
         ${generateStarRating[bookmark.rating - 1]}
       </div>
       <a href="#" class="delete-bookmark-btn"><span><i class="fas fa-trash-alt"></i></span></a>
-    </li>
-    </ul>`
+    </li>`
   };
 
 
