@@ -12,8 +12,12 @@
 
 h1 {
   text-align: center;
+}
+
+h1 a {
+  text-decoration: none;
+  color: #BC8F8F;
   font-size: 35px;
-  color: #BC8F8F
 }
 
 .top-buttons {
@@ -102,7 +106,7 @@ fieldset label {
 
 .star-rating {
   border: none;
-  float: left;
+  
   margin-top: -30px;
   margin-left: -7px;
   overflow: hidden;
@@ -195,6 +199,9 @@ fieldset label {
 }
 
 .bookmark-rating {
+  display: flex;
+  align-items: center;
+  justify-content: start;
   color:	#F0E68C;
   font-size: 30px;
 }
