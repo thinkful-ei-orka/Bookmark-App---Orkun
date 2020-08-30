@@ -105,6 +105,8 @@ fieldset label {
   float: left;
   margin-top: -30px;
   margin-left: -7px;
+  overflow: hidden;
+  width: 100%;
 }
 
 

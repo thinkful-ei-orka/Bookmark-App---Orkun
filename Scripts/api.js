@@ -26,6 +26,7 @@ function getItems() {
     return listApiFetch(`${BASE_URL}/bookmarks`)
 }
 
+
 function createBookmark(title, url, desc, rating) {
     const stringBody = JSON.stringify({title, url, desc, rating});
     let newArg = {
